@@ -3,10 +3,11 @@ from django.urls import reverse_lazy
 from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView
 )
-
+from django.db.models import Exists, OuterRef
+from django.shortcuts import render
 from .filters import ProductFilter
 from .forms import ProductForm
-from .models import Product
+from .models import Product, Category, Subscription
 
 
 class ProductsList(ListView):
